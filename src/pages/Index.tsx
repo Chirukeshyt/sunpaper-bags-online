@@ -1,16 +1,18 @@
 import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/home/HeroSection";
-import FeaturesSection from "@/components/home/FeaturesSection";
-import ProductPreview from "@/components/home/ProductPreview";
-import HowItWorks from "@/components/home/HowItWorks";
+import ProductGallery from "@/components/home/ProductGallery";
+import IndustrySection from "@/components/home/IndustrySection";
+import AboutSection from "@/components/home/AboutSection";
+import CustomQuoteSection from "@/components/home/CustomQuoteSection";
 
 const Index = () => {
   return (
     <Layout>
       <HeroSection />
-      <FeaturesSection />
-      <ProductPreview />
-      <HowItWorks />
+      <ProductGallery />
+      <IndustrySection />
+      <AboutSection />
+      <CustomQuoteSection />
     </Layout>
   );
 };
