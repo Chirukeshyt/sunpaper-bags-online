@@ -1,70 +1,88 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle, ArrowDown } from "lucide-react";
 import { getGeneralWhatsAppLink } from "@/lib/whatsapp";
+import heroBags from "@/assets/hero-bags.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-surface-soft to-background py-16 md:py-24 lg:py-32">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background">
+      <div className="container">
+        <div className="grid min-h-[80vh] items-center gap-8 py-12 lg:grid-cols-2 lg:gap-12 lg:py-0">
+          {/* Left Content */}
+          <div className="relative z-10 text-center lg:text-left">
+            {/* Badge */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary animate-fade-in">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Trusted by 1000+ businesses
+            </div>
 
-      <div className="container relative">
-        <div className="mx-auto max-w-3xl text-center">
-          {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-sm font-medium text-accent-foreground animate-fade-in">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Trusted by 500+ businesses
+            {/* Heading */}
+            <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl animate-fade-in [animation-delay:100ms]">
+              Custom Printing for{" "}
+              <span className="text-primary">Brands & You</span>
+            </h1>
+
+            {/* Subheading */}
+            <p className="mt-6 text-lg text-muted-foreground md:text-xl animate-fade-in [animation-delay:200ms] max-w-xl mx-auto lg:mx-0">
+              Premium printed paper bags for Wedding, Retail, Food & Healthcare. 
+              Fully customizable from size to print — tailored to your brand.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start animate-fade-in [animation-delay:300ms]">
+              <Button variant="whatsapp" size="xl" asChild>
+                <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-5 w-5" />
+                  Get Custom Quote
+                </a>
+              </Button>
+              <Button variant="outline" size="xl" asChild>
+                <a href="#products">
+                  Explore Products
+                  <ArrowDown className="h-5 w-5" />
+                </a>
+              </Button>
+            </div>
+
+            {/* Trust indicators */}
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground animate-fade-in [animation-delay:400ms] lg:justify-start">
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-primary" />
+                Pan-India Delivery
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-primary" />
+                Custom Sizes
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-primary" />
+                Bulk Orders
+              </div>
+            </div>
           </div>
 
-          {/* Heading */}
-          <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl animate-fade-in [animation-delay:100ms]">
-            Printed Paper Bags — 
-            <span className="text-primary"> Custom, Durable & Affordable</span>
-          </h1>
-
-          {/* Subheading */}
-          <p className="mt-6 text-lg text-muted-foreground md:text-xl animate-fade-in [animation-delay:200ms]">
-            Wedding, Retail, Food & Hospital Bags with premium printing & bulk pricing. 
-            Quality craftsmanship for every business need.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in [animation-delay:300ms]">
-            <Button variant="hero" size="xl" asChild>
-              <Link to="/products">
-                View Products
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
-            <Button variant="whatsapp" size="xl" asChild>
-              <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5" />
-                Order on WhatsApp
-              </a>
-            </Button>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground animate-fade-in [animation-delay:400ms]">
-            <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-primary" />
-              Fast Delivery
+          {/* Right Image */}
+          <div className="relative animate-fade-in [animation-delay:200ms]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+              <img 
+                src={heroBags} 
+                alt="Premium printed paper bags collection" 
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
             </div>
-            <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-primary" />
-              Premium Quality
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-primary" />
-              Bulk Pricing
+            {/* Floating badge */}
+            <div className="absolute -bottom-4 -left-4 rounded-xl bg-card p-4 shadow-lg border border-border hidden md:block">
+              <p className="text-sm font-medium text-foreground">100% Customizable</p>
+              <p className="text-xs text-muted-foreground">Any size, any design</p>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
+        <ArrowDown className="h-6 w-6 text-muted-foreground" />
       </div>
     </section>
   );

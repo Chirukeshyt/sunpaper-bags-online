@@ -11,8 +11,8 @@ const Header = () => {
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "Products", path: "/products" },
-    { label: "Contact", path: "/#contact" },
+    { label: "Products", path: "/#products" },
+    { label: "About", path: "/#about" },
   ];
 
   const isActive = (path: string) => {
@@ -28,7 +28,7 @@ const Header = () => {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
             <span className="font-heading text-lg font-bold text-primary-foreground">S</span>
           </div>
-          <span className="font-heading text-xl font-semibold text-foreground">
+          <span className="font-heading text-xl font-semibold text-foreground hidden sm:inline-block">
             SunPaperIndustries
           </span>
         </Link>
@@ -36,16 +36,26 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                isActive(item.path) ? "text-primary" : "text-muted-foreground"
-              )}
-            >
-              {item.label}
-            </Link>
+            item.path.includes("#") ? (
+              <a
+                key={item.path}
+                href={item.path}
+                className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-primary",
+                  isActive(item.path) ? "text-primary" : "text-muted-foreground"
+                )}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </nav>
 
@@ -54,7 +64,7 @@ const Header = () => {
           <Button variant="whatsapp" size="sm" asChild>
             <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-4 w-4" />
-              WhatsApp
+              Get Quote
             </a>
           </Button>
         </div>
@@ -78,22 +88,33 @@ const Header = () => {
         <div className="border-t border-border bg-background md:hidden">
           <nav className="container flex flex-col gap-4 py-4">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  isActive(item.path) ? "text-primary" : "text-muted-foreground"
-                )}
-              >
-                {item.label}
-              </Link>
+              item.path.includes("#") ? (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-primary",
+                    isActive(item.path) ? "text-primary" : "text-muted-foreground"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             <Button variant="whatsapp" size="sm" className="w-full" asChild>
               <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-4 w-4" />
-                WhatsApp
+                Get Quote on WhatsApp
               </a>
             </Button>
           </nav>

@@ -1,32 +1,37 @@
-import { Product } from "@/data/products";
-
 const WHATSAPP_NUMBER = "919876543210"; // Replace with actual number
 
-export const generateWhatsAppMessage = (product: Product): string => {
-  const costDisplay = product.cost ? `₹${product.cost}` : "Contact for price";
-  const gstDisplay = product.gst ? `${product.gst}%` : "N/A";
-  
-  const message = `Hi SunPaperIndustries 👋
-I want to order the following product:
-
-• Product: ${product.purpose || "Paper Bag"}
-• Size: ${product.size} ${product.unit}
-• Material: ${product.material}
-• Printing: ${product.printing}
-• Min Qty: ${product.min_quantity}
-• Unit Price: ${costDisplay} (GST ${gstDisplay})
-
-Please share delivery time & payment details.`;
-
-  return encodeURIComponent(message);
-};
-
-export const getWhatsAppLink = (product: Product): string => {
-  const message = generateWhatsAppMessage(product);
+export const getGeneralWhatsAppLink = (): string => {
+  const message = encodeURIComponent(`Hi SunPaperIndustries 👋
+I'm interested in your printed paper bags. Please share more details about your products and pricing.`);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 };
 
-export const getGeneralWhatsAppLink = (): string => {
-  const message = encodeURIComponent("Hi SunPaperIndustries 👋\nI'm interested in your printed paper bags. Please share more details.");
+export const getCustomQuoteLink = (category: string): string => {
+  const message = encodeURIComponent(`Hi SunPaperIndustries 👋
+I'm interested in getting a quote for:
+
+• Category: ${category}
+• Size: [Please specify your required size]
+• Material: [Duplex / Kraft / Catlumina]
+• Printing: [Single Color / Multi Color]
+• Quantity: [Please specify quantity]
+
+Please share pricing and delivery details.`);
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+};
+
+export const getCustomSizeQuoteLink = (): string => {
+  const message = encodeURIComponent(`Hi SunPaperIndustries 👋
+I need paper bags in a custom size:
+
+• Width: ___
+• Height: ___
+• Gusset: ___
+• Unit: Inches / Cms
+• Material: [Duplex / Kraft / Catlumina]
+• Printing: [Single Color / Multi Color]
+• Quantity: ___
+
+Please share pricing and delivery details.`);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 };
