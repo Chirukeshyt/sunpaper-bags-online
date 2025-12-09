@@ -37,10 +37,10 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-10 md:py-14 bg-background">
       <div className="container">
         {/* Header */}
-        <ScrollReveal className="text-center mb-12">
+        <ScrollReveal className="text-center mb-8 md:mb-10">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
             Why Choose SunPaper Industries?
           </h2>

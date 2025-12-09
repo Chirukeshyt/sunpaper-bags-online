@@ -44,10 +44,10 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-surface-soft">
+    <section className="py-10 md:py-14 bg-surface-soft">
       <div className="container">
         {/* Header */}
-        <ScrollReveal className="text-center mb-12">
+        <ScrollReveal className="text-center mb-8 md:mb-10">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
             Frequently Asked Questions
           </h2>

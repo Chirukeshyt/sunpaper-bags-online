@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -7,14 +9,12 @@ const Footer = () => {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-                <span className="font-heading text-lg font-bold text-primary-foreground">S</span>
-              </div>
+            <Link to="/" className="flex items-center gap-2">
+              <img src={logo} alt="SunPaper Industries Logo" className="h-10 w-10 object-contain rounded-lg" />
               <span className="font-heading text-lg font-semibold text-foreground">
                 SunPaperIndustries
               </span>
-            </div>
+            </Link>
             <p className="text-sm text-muted-foreground">
               Premium printed paper bags for weddings, retail, food & hospitals. 
               Custom designs with bulk pricing.
@@ -26,13 +26,13 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-foreground">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="/" className="transition-colors hover:text-primary">Home</a>
+                <Link to="/" className="transition-colors hover:text-primary">Home</Link>
               </li>
               <li>
-                <a href="/products" className="transition-colors hover:text-primary">Products</a>
+                <Link to="/products" className="transition-colors hover:text-primary">Products</Link>
               </li>
               <li>
-                <a href="#contact" className="transition-colors hover:text-primary">Contact</a>
+                <Link to="/contact" className="transition-colors hover:text-primary">Contact</Link>
               </li>
             </ul>
           </div>
@@ -54,12 +54,12 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span>Industrial Area, Sector 5, Chennai, Tamil Nadu 600001</span>
+                <span>3rd Line, 8-3-42, BTR Colony, Mangalam, Tirupati, Andhra Pradesh 517509</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-primary" />
-                <a href="tel:+919876543210" className="transition-colors hover:text-primary">
-                  +91 98765 43210
+                <a href="tel:+919866038338" className="transition-colors hover:text-primary">
+                  +91 98660 38338
                 </a>
               </li>
               <li className="flex items-center gap-3">

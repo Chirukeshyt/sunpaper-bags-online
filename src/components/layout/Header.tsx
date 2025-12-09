@@ -12,7 +12,7 @@ const Header = () => {
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "Products", path: "/#products" },
+    { label: "Products", path: "/products" },
     { label: "About", path: "/#about" },
     { label: "FAQ", path: "/#faq" },
     { label: "Contact", path: "/contact" },
@@ -28,7 +28,7 @@ const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="SunPaper Industries Logo" className="h-12 w-12 object-contain" />
+          <img src={logo} alt="SunPaper Industries Logo" className="h-12 w-12 object-contain rounded-lg" />
           <span className="font-heading text-xl font-semibold text-foreground hidden sm:inline-block">
             SunPaperIndustries
           </span>

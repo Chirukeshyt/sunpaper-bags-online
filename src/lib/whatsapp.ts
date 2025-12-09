@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "919876543210"; // Replace with actual number
+const WHATSAPP_NUMBER = "919866038338";
 
 export const getGeneralWhatsAppLink = (): string => {
   const message = encodeURIComponent(`Hi SunPaperIndustries 👋

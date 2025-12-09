@@ -89,7 +89,7 @@ const Contact = () => {
                         id="phone"
                         name="phone"
                         type="tel"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 98660 38338"
                         value={formData.phone}
                         onChange={handleChange}
                         required
@@ -162,8 +162,8 @@ const Contact = () => {
                         <h3 className="font-semibold text-foreground">Address</h3>
                         <p className="text-muted-foreground text-sm mt-1">
                           SunPaper Industries<br />
-                          Industrial Area, Phase-2<br />
-                          Hyderabad, Telangana 500032
+                          3rd Line, 8-3-42, BTR Colony<br />
+                          Mangalam, Tirupati, Andhra Pradesh 517509
                         </p>
                       </div>
                     </div>
@@ -175,8 +175,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-foreground">Phone</h3>
                         <p className="text-muted-foreground text-sm mt-1">
-                          +91 98765 43210<br />
-                          +91 98765 43211
+                          +91 98660 38338
                         </p>
                       </div>
                     </div>
@@ -214,9 +213,9 @@ const Contact = () => {
               <ScrollReveal direction="right" delay={0.2}>
                 <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-soft">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.4660529767835!2d78.4867!3d17.4372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzE0LjAiTiA3OMKwMjknMTIuMSJF!5e0!3m2!1sen!2sin!4v1234567890"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.9548330609173!2d79.45984527535072!3d13.660510399400046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b4a3fe23edf%3A0x5dfc8ffbff2ed4ae!2sSun%20Paper%20Industries!5e0!3m2!1sen!2sin!4v1765258453198!5m2!1sen!2sin"
                     width="100%"
-                    height="300"
+                    height="450"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"

@@ -11,7 +11,7 @@ const features = [
 
 const AboutSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-primary/5">
+    <section className="py-10 md:py-14 bg-primary/5">
       <div className="container">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Content */}
@@ -20,7 +20,7 @@ const AboutSection = () => {
               About SunPaperIndustries
             </span>
             <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
-              Print Solution by SunPaper: The Perfect Choice for Every Professional
+              Print Solution by SunPaperIndustries: The Perfect Choice for Every Professional
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
               Online printing has revolutionized how we get our marketing materials, offering 
@@ -48,7 +48,7 @@ const AboutSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-2">
             <div className="rounded-xl bg-card p-6 text-center shadow-soft border border-border">
               <div className="text-4xl font-bold text-primary">1000+</div>
               <div className="mt-2 text-sm text-muted-foreground">Happy Customers</div>

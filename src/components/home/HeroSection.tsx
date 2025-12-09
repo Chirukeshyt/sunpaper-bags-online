@@ -33,8 +33,8 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl"
             >
-              Premium Printed{" "}
-              <span className="text-primary">Paper Bags</span>{" "}
+              Premium{" "}
+              <span className="text-primary">All Types of Bags</span>{" "}
               for Your Brand
             </motion.h1>
 
@@ -45,8 +45,8 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-6 text-lg text-muted-foreground md:text-xl max-w-xl mx-auto lg:mx-0"
             >
-              Custom paper bags for Wedding, Retail, Food & Healthcare industries. 
-              Fully customizable — from size to print. Premium quality at competitive prices.
+              Custom bags for Wedding, Retail, Food & Healthcare industries. 
+              We manufacture all types of bags — paper, fabric, and more. Fully customizable — from size to print. Premium quality at competitive prices.
             </motion.p>
 
             {/* CTA Buttons */}

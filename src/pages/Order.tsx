@@ -44,7 +44,7 @@ I want to place an order:
 
 Please confirm availability and share payment details.`);
 
-    return `https://wa.me/919876543210?text=${message}`;
+    return `https://wa.me/919866038338?text=${message}`;
   };
 
   return (

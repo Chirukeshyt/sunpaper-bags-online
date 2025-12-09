@@ -27,9 +27,9 @@ const steps = [
 
 const CustomQuoteSection = () => {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-10 md:py-14 bg-background">
       <div className="container">
-        <div className="rounded-3xl bg-gradient-to-br from-primary to-primary/80 p-8 md:p-12 text-center overflow-hidden relative">
+        <div className="rounded-2xl md:rounded-3xl bg-gradient-to-br from-primary to-primary/80 p-6 md:p-8 lg:p-12 text-center overflow-hidden relative">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -38,39 +38,39 @@ const CustomQuoteSection = () => {
           </div>
 
           <div className="relative z-10">
-            <h2 className="font-heading text-3xl font-bold text-primary-foreground md:text-4xl">
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground">
               How to Get Your Custom Quote
             </h2>
-            <p className="mt-4 text-primary-foreground/80 max-w-2xl mx-auto">
+            <p className="mt-3 md:mt-4 text-sm md:text-base text-primary-foreground/80 max-w-2xl mx-auto px-2">
               Getting custom printed paper bags is easy! Just follow these simple steps 
               and we'll provide you with an instant quote via WhatsApp.
             </p>
 
             {/* Steps */}
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {steps.map((step, index) => (
                 <div 
                   key={index}
-                  className="rounded-xl bg-primary-foreground/10 backdrop-blur-sm p-6 text-center"
+                  className="rounded-lg md:rounded-xl bg-primary-foreground/10 backdrop-blur-sm p-4 md:p-6 text-center"
                 >
-                  <div className="mx-auto w-12 h-12 rounded-full bg-primary-foreground/20 flex items-center justify-center text-primary-foreground mb-4">
+                  <div className="mx-auto w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary-foreground/20 flex items-center justify-center text-primary-foreground mb-3 md:mb-4">
                     {step.icon}
                   </div>
                   <div className="text-xs text-primary-foreground/60 mb-1">Step {index + 1}</div>
-                  <h3 className="font-semibold text-primary-foreground">{step.title}</h3>
-                  <p className="mt-1 text-sm text-primary-foreground/70">{step.description}</p>
+                  <h3 className="text-sm md:text-base font-semibold text-primary-foreground">{step.title}</h3>
+                  <p className="mt-1 text-xs md:text-sm text-primary-foreground/70">{step.description}</p>
                 </div>
               ))}
             </div>
 
             {/* CTA */}
             <Button 
-              size="xl" 
-              className="mt-10 bg-secondary text-secondary-foreground hover:bg-secondary/90"
+              size="lg"
+              className="mt-6 md:mt-10 w-full sm:w-auto bg-secondary text-secondary-foreground hover:bg-secondary/90 text-sm md:text-base px-6 md:px-8"
               asChild
             >
               <a href={getCustomQuoteLink("General Inquiry")} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5" />
+                <MessageCircle className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                 Get Instant Quote on WhatsApp
               </a>
             </Button>

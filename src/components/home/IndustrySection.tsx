@@ -70,10 +70,10 @@ const industries: Industry[] = [
 
 const IndustrySection = () => {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-10 md:py-14 bg-background">
       <div className="container">
         {/* Section Header */}
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <div className="mx-auto mb-8 md:mb-10 max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
             Industries We Serve
           </h2>
@@ -84,7 +84,7 @@ const IndustrySection = () => {
         </div>
 
         {/* Industry Grid */}
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {industries.map((industry) => (
             <a
               key={industry.id}
