@@ -1,84 +1,139 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowDown } from "lucide-react";
 import { getGeneralWhatsAppLink } from "@/lib/whatsapp";
+import { motion } from "framer-motion";
 import heroBags from "@/assets/hero-bags.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden min-h-[90vh] flex items-center">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBags} 
-          alt="Paper bags background" 
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
-      </div>
-
+    <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
 
-      <div className="container relative z-10">
-        <div className="max-w-3xl py-16 md:py-24">
-          {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary animate-fade-in">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-            Since 2006 • Trusted by 1000+ businesses
+      <div className="container">
+        <div className="grid min-h-[85vh] items-center gap-8 py-12 lg:grid-cols-2 lg:gap-12 lg:py-0">
+          {/* Left Content */}
+          <div className="relative z-10 text-center lg:text-left">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 px-4 py-1.5 text-sm font-medium text-primary"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              Since 2006 • Trusted by 1000+ businesses
+            </motion.div>
+
+            {/* Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl"
+            >
+              Premium Printed{" "}
+              <span className="text-primary">Paper Bags</span>{" "}
+              for Your Brand
+            </motion.h1>
+
+            {/* Subheading */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-6 text-lg text-muted-foreground md:text-xl max-w-xl mx-auto lg:mx-0"
+            >
+              Custom paper bags for Wedding, Retail, Food & Healthcare industries. 
+              Fully customizable — from size to print. Premium quality at competitive prices.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
+            >
+              <Button variant="whatsapp" size="xl" asChild>
+                <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-5 w-5" />
+                  Get Custom Quote
+                </a>
+              </Button>
+              <Button variant="outline" size="xl" asChild>
+                <a href="#products">
+                  Explore Products
+                  <ArrowDown className="h-5 w-5" />
+                </a>
+              </Button>
+            </motion.div>
+
+            {/* Trust indicators */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground lg:justify-start"
+            >
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-primary" />
+                Pan-India Delivery
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-primary" />
+                Custom Sizes
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-primary" />
+                Bulk Orders
+              </div>
+            </motion.div>
           </div>
 
-          {/* Heading */}
-          <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in [animation-delay:100ms]">
-            Premium Printed{" "}
-            <span className="text-primary">Paper Bags</span>{" "}
-            for Your Brand
-          </h1>
-
-          {/* Subheading */}
-          <p className="mt-6 text-lg text-muted-foreground md:text-xl animate-fade-in [animation-delay:200ms] max-w-2xl">
-            Custom paper bags for Wedding, Retail, Food & Healthcare industries. 
-            Fully customizable — from size to print. Premium quality at competitive prices.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row animate-fade-in [animation-delay:300ms]">
-            <Button variant="whatsapp" size="xl" asChild>
-              <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5" />
-                Get Custom Quote
-              </a>
-            </Button>
-            <Button variant="outline" size="xl" className="backdrop-blur-sm" asChild>
-              <a href="#products">
-                Explore Products
-                <ArrowDown className="h-5 w-5" />
-              </a>
-            </Button>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="mt-12 flex flex-wrap items-center gap-6 text-sm text-muted-foreground animate-fade-in [animation-delay:400ms]">
-            <div className="flex items-center gap-2 bg-background/50 backdrop-blur-sm rounded-full px-4 py-2">
-              <div className="h-2 w-2 rounded-full bg-primary" />
-              Pan-India Delivery
+          {/* Right Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+              <img 
+                src={heroBags} 
+                alt="Premium printed paper bags collection" 
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
             </div>
-            <div className="flex items-center gap-2 bg-background/50 backdrop-blur-sm rounded-full px-4 py-2">
-              <div className="h-2 w-2 rounded-full bg-primary" />
-              Custom Sizes
-            </div>
-            <div className="flex items-center gap-2 bg-background/50 backdrop-blur-sm rounded-full px-4 py-2">
-              <div className="h-2 w-2 rounded-full bg-primary" />
-              Bulk Orders
-            </div>
-          </div>
+            {/* Floating badge */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="absolute -bottom-4 -left-4 rounded-xl bg-card p-4 shadow-lg border border-border hidden md:block"
+            >
+              <p className="text-sm font-medium text-foreground">100% Customizable</p>
+              <p className="text-xs text-muted-foreground">Any size, any design</p>
+            </motion.div>
+            {/* Another floating badge */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="absolute -top-4 -right-4 rounded-xl bg-primary p-4 shadow-lg hidden md:block"
+            >
+              <p className="text-sm font-bold text-primary-foreground">18+ Years</p>
+              <p className="text-xs text-primary-foreground/80">Experience</p>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
-        <div className="bg-background/80 backdrop-blur-sm rounded-full p-2">
+        <div className="bg-background/80 backdrop-blur-sm rounded-full p-2 border border-border">
           <ArrowDown className="h-5 w-5 text-primary" />
         </div>
       </div>

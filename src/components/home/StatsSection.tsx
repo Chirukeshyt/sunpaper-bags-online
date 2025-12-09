@@ -1,4 +1,5 @@
 import { Package, Users, MapPin, Calendar } from "lucide-react";
+import { motion } from "framer-motion";
 
 const stats = [
   {
@@ -33,12 +34,19 @@ const StatsSection = () => {
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="text-center"
+            >
               <stat.icon className="w-10 h-10 mx-auto mb-4 opacity-80" />
               <p className="text-3xl md:text-4xl font-bold mb-1">{stat.value}</p>
               <p className="font-medium">{stat.label}</p>
               <p className="text-sm opacity-70">{stat.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

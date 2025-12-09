@@ -1,4 +1,6 @@
 import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const testimonials = [
   {
@@ -40,20 +42,24 @@ const TestimonialsSection = () => {
     <section className="py-16 md:py-24 bg-background">
       <div className="container">
         {/* Header */}
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
             What Our Customers Say
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             Trusted by 500+ businesses across India since 2006
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Testimonials Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {testimonials.map((testimonial) => (
-            <div
+          {testimonials.map((testimonial, index) => (
+            <motion.div
               key={testimonial.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-card rounded-xl border border-border p-6 relative hover:shadow-lg transition-shadow"
             >
               <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10" />
@@ -76,7 +82,7 @@ const TestimonialsSection = () => {
                 <p className="text-xs text-muted-foreground">{testimonial.business}</p>
                 <p className="text-xs text-primary">{testimonial.location}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
