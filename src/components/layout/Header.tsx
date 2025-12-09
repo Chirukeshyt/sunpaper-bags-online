@@ -4,6 +4,7 @@ import { MessageCircle, Menu, X } from "lucide-react";
 import { getGeneralWhatsAppLink } from "@/lib/whatsapp";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,6 +14,7 @@ const Header = () => {
     { label: "Home", path: "/" },
     { label: "Products", path: "/#products" },
     { label: "About", path: "/#about" },
+    { label: "FAQ", path: "/#faq" },
   ];
 
   const isActive = (path: string) => {
@@ -25,9 +27,7 @@ const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-            <span className="font-heading text-lg font-bold text-primary-foreground">S</span>
-          </div>
+          <img src={logo} alt="SunPaper Industries Logo" className="h-12 w-12 object-contain" />
           <span className="font-heading text-xl font-semibold text-foreground hidden sm:inline-block">
             SunPaperIndustries
           </span>
