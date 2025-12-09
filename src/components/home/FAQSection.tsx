@@ -4,6 +4,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const faqs = [
   {
@@ -45,31 +47,38 @@ const FAQSection = () => {
     <section className="py-16 md:py-24 bg-surface-soft">
       <div className="container">
         {/* Header */}
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             Find answers to common questions about our products and services
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* FAQ Accordion */}
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem
+              <motion.div
                 key={index}
-                value={`item-${index}`}
-                className="bg-card rounded-xl border border-border px-6 data-[state=open]:shadow-md transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
-                <AccordionTrigger className="text-left font-medium hover:no-underline py-5">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem
+                  value={`item-${index}`}
+                  className="bg-card rounded-xl border border-border px-6 data-[state=open]:shadow-md transition-shadow"
+                >
+                  <AccordionTrigger className="text-left font-medium hover:no-underline py-5">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-5">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
         </div>

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 import weddingBags from "@/assets/wedding-bags.jpg";
 import retailBags from "@/assets/retail-bags.jpg";
@@ -70,9 +72,15 @@ const categories: ProductCategory[] = [
   }
 ];
 
-const ProductCard = ({ category }: { category: ProductCategory }) => {
+const ProductCard = ({ category, index }: { category: ProductCategory; index: number }) => {
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group relative overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+    >
       {/* Image */}
       <div className="aspect-square overflow-hidden">
         <img 
@@ -116,7 +124,7 @@ const ProductCard = ({ category }: { category: ProductCategory }) => {
           </Link>
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -125,7 +133,7 @@ const ProductGallery = () => {
     <section id="products" className="bg-surface-soft py-16 md:py-24">
       <div className="container">
         {/* Section Header */}
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <ScrollReveal className="mx-auto mb-12 max-w-2xl text-center">
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
             Our Product Range
           </h2>
@@ -133,17 +141,17 @@ const ProductGallery = () => {
             Explore our wide range of printed paper bags. All products are fully customizable 
             — from size to printing. Get a custom quote via WhatsApp.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Product Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {categories.map((category) => (
-            <ProductCard key={category.id} category={category} />
+          {categories.map((category, index) => (
+            <ProductCard key={category.id} category={category} index={index} />
           ))}
         </div>
 
         {/* Custom Size CTA */}
-        <div className="mt-12 rounded-2xl bg-primary/5 p-8 text-center">
+        <ScrollReveal delay={0.3} className="mt-12 rounded-2xl bg-primary/5 p-8 text-center">
           <h3 className="font-heading text-2xl font-semibold text-foreground">
             Need a Custom Size?
           </h3>
@@ -156,7 +164,7 @@ const ProductGallery = () => {
               Customize & Order
             </Link>
           </Button>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -1,4 +1,6 @@
 import { Truck, Palette, BadgePercent, Leaf, Shield, Headphones } from "lucide-react";
+import { motion } from "framer-motion";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const features = [
   {
@@ -38,20 +40,24 @@ const FeaturesSection = () => {
     <section className="py-16 md:py-24 bg-background">
       <div className="container">
         {/* Header */}
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
             Why Choose SunPaper Industries?
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             Trusted by businesses across India for premium printed paper bags
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Features Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-card rounded-xl border border-border p-6 hover:shadow-lg hover:border-primary/20 transition-all group"
             >
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -63,7 +69,7 @@ const FeaturesSection = () => {
               <p className="text-sm text-muted-foreground">
                 {feature.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
