@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
-import { getCustomQuoteLink } from "@/lib/whatsapp";
+import { ArrowRight } from "lucide-react";
 
 import weddingBags from "@/assets/wedding-bags.jpg";
 import retailBags from "@/assets/retail-bags.jpg";
@@ -109,11 +109,11 @@ const ProductCard = ({ category }: { category: ProductCategory }) => {
         </div>
 
         {/* CTA */}
-        <Button variant="whatsapp" size="sm" className="mt-4 w-full" asChild>
-          <a href={getCustomQuoteLink(category.name)} target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="h-4 w-4" />
-            Get Quote
-          </a>
+        <Button variant="default" size="sm" className="mt-4 w-full" asChild>
+          <Link to={`/order?category=${encodeURIComponent(category.name)}`}>
+            Order Now
+            <ArrowRight className="h-4 w-4 ml-1" />
+          </Link>
         </Button>
       </div>
     </div>
@@ -150,11 +150,11 @@ const ProductGallery = () => {
           <p className="mt-2 text-muted-foreground">
             We manufacture paper bags in any custom dimensions. Share your requirements and get an instant quote.
           </p>
-          <Button variant="whatsapp" size="lg" className="mt-6" asChild>
-            <a href={getCustomQuoteLink("Custom Size")} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-5 w-5" />
-              Request Custom Size Quote
-            </a>
+          <Button variant="default" size="lg" className="mt-6" asChild>
+            <Link to="/order?category=Custom%20Size">
+              <ArrowRight className="h-5 w-5 mr-2" />
+              Customize & Order
+            </Link>
           </Button>
         </div>
       </div>
