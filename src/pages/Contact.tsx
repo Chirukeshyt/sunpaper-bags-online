@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -43,6 +44,12 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Contact Us - Get Custom Quote"
+        description="Contact SunPaperIndustries for custom bag orders. Get instant quotes via WhatsApp or send us a message. Located in Tirupati, Andhra Pradesh. Pan-India delivery available."
+        keywords="contact paper bag manufacturer, custom bag quote, paper bag supplier contact, bulk bag orders, WhatsApp order, Tirupati bag manufacturer"
+        url="https://sunpaperindustries.com/contact"
+      />
       {/* Hero Section */}
       <section className="bg-primary/5 py-16 md:py-24">
         <div className="container">

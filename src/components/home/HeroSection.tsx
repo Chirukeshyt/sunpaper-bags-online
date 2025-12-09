@@ -54,17 +54,19 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
+              className="mt-10 grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:items-center sm:justify-center lg:justify-start"
             >
-              <Button variant="whatsapp" size="xl" asChild>
+              <Button variant="whatsapp" size="xl" className="w-full sm:w-auto" asChild>
                 <a href={getGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" />
-                  Get Custom Quote
+                  <span className="hidden sm:inline">Get Custom Quote</span>
+                  <span className="sm:hidden">Get Quote</span>
                 </a>
               </Button>
-              <Button variant="outline" size="xl" asChild>
+              <Button variant="outline" size="xl" className="w-full sm:w-auto" asChild>
                 <a href="#products">
-                  Explore Products
+                  <span className="hidden sm:inline">Explore Products</span>
+                  <span className="sm:hidden">Products</span>
                   <ArrowDown className="h-5 w-5" />
                 </a>
               </Button>

@@ -1,0 +1,6 @@
+Contact: mailto:info@sunpaperindustries.com
+Contact: https://sunpaperindustries.com/contact
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://sunpaperindustries.com/.well-known/security.txt
+

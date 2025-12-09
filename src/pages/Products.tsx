@@ -1,6 +1,7 @@
 import { Package } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { productsPageProducts, ProductImage } from "@/data/products";
 
 const ProductImageCard = ({ product, index }: { product: ProductImage; index: number }) => {
@@ -31,6 +32,12 @@ const Products = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Our Products - Customer Gallery"
+        description="Explore our complete range of printed paper bags and custom bags trusted by our customers. All products are fully customizable — from size to printing. Get a custom quote via WhatsApp."
+        keywords="paper bag products, custom bag gallery, printed bag examples, wedding bag designs, retail bag samples, food bag products, hospital bag gallery, kraft bag designs, duplex bag samples"
+        url="https://sunpaperindustries.com/products"
+      />
       <section className="bg-background py-12 md:py-16">
         <div className="container">
           {/* Page Header */}

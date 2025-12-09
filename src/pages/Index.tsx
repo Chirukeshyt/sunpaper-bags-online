@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import HeroSection from "@/components/home/HeroSection";
 import ProductGallery from "@/components/home/ProductGallery";
 import IndustrySection from "@/components/home/IndustrySection";
@@ -12,6 +13,12 @@ import StatsSection from "@/components/home/StatsSection";
 const Index = () => {
   return (
     <Layout>
+      <SEO
+        title="SunPaperIndustries - Premium All Types of Bags for Your Brand"
+        description="Custom bags for Wedding, Retail, Food & Healthcare industries. We manufacture all types of bags — paper, fabric, and more. Fully customizable — from size to print. Premium quality at competitive prices. Pan-India delivery."
+        keywords="paper bags, custom bags, printed bags, wedding bags, retail bags, food bags, hospital bags, kraft bags, duplex bags, custom printed bags, bulk bags, paper bag manufacturer, India, custom size bags, wholesale bags, fabric bags"
+        url="https://sunpaperindustries.com"
+      />
       <HeroSection />
       <StatsSection />
       <ProductGallery />

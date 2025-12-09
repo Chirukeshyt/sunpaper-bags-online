@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
+import SEO from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -49,6 +50,12 @@ Please confirm availability and share payment details.`);
 
   return (
     <Layout>
+      <SEO
+        title="Customize Your Order - Get Instant Quote"
+        description="Customize your paper bag order with our easy-to-use configurator. Select size, material, printing options, and quantity. Get instant pricing and order via WhatsApp. Bulk discounts available."
+        keywords="customize paper bags, order paper bags, paper bag configurator, custom size bags, bulk bag orders, paper bag pricing, instant quote, WhatsApp order"
+        url="https://sunpaperindustries.com/order"
+      />
       <div className="min-h-screen bg-background py-12">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-10">
