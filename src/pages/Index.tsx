@@ -12,6 +12,7 @@ import FAQSection from "@/components/home/FAQSection";
 import StatsSection from "@/components/home/StatsSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
 import PricingSection from "@/components/home/PricingSection";
+import CustomOrderPopup from "@/components/CustomOrderPopup";
 
 const Index = () => {
   return (
@@ -36,6 +37,7 @@ const Index = () => {
         <FAQSection />
       </div>
       <CustomQuoteSection />
+      <CustomOrderPopup />
     </Layout>
   );
 };
