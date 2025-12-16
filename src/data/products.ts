@@ -18,46 +18,53 @@ export interface ProductCategory {
 // Products for Home Page Gallery
 export const homePageProducts: ProductCategory[] = [
   {
-    id: "wedding",
-    name: "Wedding Bags",
-    description: "Elegant bags for your special occasions",
-    image: weddingBags,
+    id: "paper-carry-bag",
+    name: "Paper Carry Bag",
+    description: "Durable carry bags for retail, events, and promotions",
+    image: retailBags,
+    sizes: ["6x9", "8x10", "10x12", "Custom"]
+  },
+  {
+    id: "printed-paper-bag",
+    name: "Printed Paper Bag",
+    description: "Custom printed bags with vibrant branding",
+    image: duplexBags,
     sizes: ["Small", "Medium", "Large", "Custom"]
   },
   {
-    id: "retail",
-    name: "Retail & Shopping",
-    description: "Branded bags for fashion & retail stores",
-    image: retailBags,
-    sizes: ["6x9", "11x13", "16x13", "18x13", "Custom"]
-  },
-  {
-    id: "food",
-    name: "Food & Bakery",
-    description: "Food-safe kraft bags for restaurants",
+    id: "food-packaging-box",
+    name: "Food Packaging Box",
+    description: "Food-grade boxes and takeaway bags for cafes and restaurants",
     image: foodBags,
     sizes: ["1/4 KG", "1/2 KG", "1 KG", "Custom"]
   },
   {
-    id: "hospital",
-    name: "Hospital & Pharmacy",
-    description: "Clean white bags for healthcare",
+    id: "paper-board",
+    name: "Paper Board",
+    description: "High-strength paper board for packaging and printing",
+    image: kraftBags,
+    sizes: ["Custom thickness", "Custom size"]
+  },
+  {
+    id: "cellulose-fiber",
+    name: "Cellulose Fiber & Wadding",
+    description: "Cellulose fiber and wadding for specialty applications",
     image: hospitalBags,
+    sizes: ["Rolls", "Sheets", "Custom"]
+  },
+  {
+    id: "wedding",
+    name: "Wedding Bags",
+    description: "Elegant bags for weddings and special occasions",
+    image: weddingBags,
     sizes: ["Small", "Medium", "Large", "Custom"]
   },
   {
     id: "jewelry",
     name: "Jewelry & Boutique",
-    description: "Premium small bags with foil printing",
+    description: "Premium small bags with foil or multicolor printing",
     image: jewelryBags,
     sizes: ["Small", "Medium", "Custom"]
-  },
-  {
-    id: "fashion",
-    name: "Fashion & Apparel",
-    description: "Stylish duplex bags with multicolor print",
-    image: duplexBags,
-    sizes: ["20x23", "20x28", "Custom"]
   },
   {
     id: "kraft",

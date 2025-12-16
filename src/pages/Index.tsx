@@ -6,6 +6,7 @@ import IndustrySection from "@/components/home/IndustrySection";
 import AboutSection from "@/components/home/AboutSection";
 import CustomQuoteSection from "@/components/home/CustomQuoteSection";
 import FeaturesSection from "@/components/home/FeaturesSection";
+import CertificatesSection from "@/components/home/CertificatesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import FAQSection from "@/components/home/FAQSection";
 import StatsSection from "@/components/home/StatsSection";
@@ -25,6 +26,7 @@ const Index = () => {
       <FeaturesSection />
       <IndustrySection />
       <AboutSection />
+      <CertificatesSection />
       <TestimonialsSection />
       <div id="faq">
         <FAQSection />
