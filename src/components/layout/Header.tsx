@@ -13,6 +13,7 @@ const Header = () => {
   const navItems = [
     { label: "Home", path: "/" },
     { label: "Products", path: "/products" },
+    { label: "Certifications", path: "/certifications" },
     { label: "About", path: "/#about" },
     { label: "FAQ", path: "/#faq" },
     { label: "Contact", path: "/contact" },
@@ -24,12 +25,12 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80" style={{ top: 'var(--banner-height, 0px)' }}>
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="SunPaper Industries Logo" className="h-12 w-12 object-contain rounded-lg" />
-          <span className="font-heading text-xl font-semibold text-foreground hidden sm:inline-block">
+          <span className="font-heading text-base sm:text-2xl font-bold text-foreground">
             SunPaperIndustries
           </span>
         </Link>

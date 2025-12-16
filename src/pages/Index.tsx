@@ -10,6 +10,8 @@ import CertificatesSection from "@/components/home/CertificatesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import FAQSection from "@/components/home/FAQSection";
 import StatsSection from "@/components/home/StatsSection";
+import HowItWorksSection from "@/components/home/HowItWorksSection";
+import PricingSection from "@/components/home/PricingSection";
 
 const Index = () => {
   return (
@@ -23,6 +25,8 @@ const Index = () => {
       <HeroSection />
       <StatsSection />
       <ProductGallery />
+      <HowItWorksSection />
+      <PricingSection />
       <FeaturesSection />
       <IndustrySection />
       <AboutSection />

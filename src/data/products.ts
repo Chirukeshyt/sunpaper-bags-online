@@ -5,6 +5,7 @@ import hospitalBags from "@/assets/hospital-bags.jpg";
 import jewelryBags from "@/assets/jewelry-bags.jpg";
 import duplexBags from "@/assets/duplex-bags.jpg";
 import kraftBags from "@/assets/kraft-bags.jpg";
+import heroBags from "@/assets/hero-bags.jpg";
 
 export interface ProductCategory {
   id: string;
@@ -42,7 +43,7 @@ export const homePageProducts: ProductCategory[] = [
     id: "paper-board",
     name: "Paper Board",
     description: "High-strength paper board for packaging and printing",
-    image: kraftBags,
+    image: heroBags,
     sizes: ["Custom thickness", "Custom size"]
   },
   {
