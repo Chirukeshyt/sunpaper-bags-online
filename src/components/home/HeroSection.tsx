@@ -46,7 +46,7 @@ const HeroSection = () => {
               className="mt-6 text-lg text-muted-foreground md:text-xl max-w-xl mx-auto lg:mx-0"
             >
               Custom bags for Wedding, Retail, Food & Healthcare industries. 
-              We manufacture all types of bags — paper, fabric, and more. Fully customizable — from size to print. Premium quality at competitive prices.
+              We manufacture all types of bags — paper, and more. Fully customizable — from size to print. Premium quality at competitive prices.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -126,7 +126,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="absolute -top-4 -right-4 rounded-xl bg-primary p-4 shadow-lg hidden md:block"
             >
-              <p className="text-sm font-bold text-primary-foreground">18+ Years</p>
+              <p className="text-sm font-bold text-primary-foreground">20+ Years</p>
               <p className="text-xs text-primary-foreground/80">Experience</p>
             </motion.div>
           </motion.div>

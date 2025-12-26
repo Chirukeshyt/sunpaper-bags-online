@@ -96,7 +96,7 @@ const Contact = () => {
                         id="phone"
                         name="phone"
                         type="tel"
-                        placeholder="+91 98660 38338"
+                        placeholder="+91 96667784645"
                         value={formData.phone}
                         onChange={handleChange}
                         required
@@ -182,7 +182,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-foreground">Phone</h3>
                         <p className="text-muted-foreground text-sm mt-1">
-                          +91 98660 38338
+                          +91 96667784645
                         </p>
                       </div>
                     </div>
@@ -194,8 +194,8 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-foreground">Email</h3>
                         <p className="text-muted-foreground text-sm mt-1">
-                          info@sunpaperindustries.com<br />
-                          sales@sunpaperindustries.com
+                        sunpaperind@gmail.com<br />
+                        sunpaperind2@gmail.com
                         </p>
                       </div>
                     </div>

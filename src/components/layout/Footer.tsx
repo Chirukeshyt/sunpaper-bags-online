@@ -11,8 +11,8 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
               <img src={logo} alt="SunPaper Industries Logo" className="h-10 w-10 object-contain rounded-lg" />
-              <span className="font-heading text-lg font-semibold text-foreground">
-                SunPaperIndustries
+              <span className="font-heading text-lg font-semibold text-green-600 dark:text-green-500">
+                SUN PAPER INDUSTRIES
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
@@ -59,13 +59,13 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-primary" />
                 <a href="tel:+919866038338" className="transition-colors hover:text-primary">
-                  +91 98660 38338
+                  +91 96667784645
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-primary" />
-                <a href="mailto:info@sunpaperindustries.com" className="transition-colors hover:text-primary">
-                  info@sunpaperindustries.com
+                <a href="mailto:sunpaperind@gmail.com" className="transition-colors hover:text-primary">
+                sunpaperind@gmail.com
                 </a>
               </li>
             </ul>
@@ -75,7 +75,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 border-t border-border pt-6">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SunPaperIndustries. All rights reserved.
+            © {new Date().getFullYear()} SUN PAPER INDUSTRIES. All rights reserved.
           </p>
         </div>
       </div>

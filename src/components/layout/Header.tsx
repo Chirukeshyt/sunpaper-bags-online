@@ -30,8 +30,8 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="SunPaper Industries Logo" className="h-12 w-12 object-contain rounded-lg" />
-          <span className="font-heading text-base sm:text-2xl font-bold text-foreground">
-            SunPaperIndustries
+          <span className="font-heading text-base sm:text-xl md:text-2xl font-bold text-green-600 dark:text-green-500">
+            SUN PAPER INDUSTRIES
           </span>
         </Link>
 
