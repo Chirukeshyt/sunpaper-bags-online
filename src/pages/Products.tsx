@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/SEO";
 import { productsPageProducts, ProductImage } from "@/data/products";
+import ProductSizesSection from "@/components/home/ProductSizesSection";
 
 const ProductImageCard = ({ product, index }: { product: ProductImage; index: number }) => {
   return (
@@ -55,7 +56,7 @@ const Products = () => {
           </div>
 
           {/* Product Image Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
             {productsPageProducts.map((product, index) => (
               <ProductImageCard 
                 key={index} 
@@ -66,6 +67,9 @@ const Products = () => {
           </div>
         </div>
       </section>
+
+      {/* Product Sizes Section */}
+      <ProductSizesSection />
     </Layout>
   );
 };

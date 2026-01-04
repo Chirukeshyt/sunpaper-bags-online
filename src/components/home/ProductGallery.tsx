@@ -46,19 +46,19 @@ const ProductCard = ({ category, index }: { category: ProductCategory; index: nu
             </p>
           </div>
           
-          {/* Sizes - Hidden on mobile */}
-          <div className="mb-3 md:mb-4 flex flex-wrap gap-2 hidden md:flex">
-            {category.sizes.slice(0, 3).map((size) => (
+          {/* Sizes - Now Visible on All Devices */}
+          <div className="mb-3 md:mb-4 flex flex-wrap gap-2">
+            {category.sizes.slice(0, 4).map((size) => (
               <span 
                 key={size}
-                className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-medium border border-primary/20"
+                className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1.5 text-xs md:text-sm font-semibold border-2 border-primary/30 hover:border-primary/50 transition-colors"
               >
                 {size}
               </span>
             ))}
-            {category.sizes.length > 3 && (
-              <span className="inline-flex items-center rounded-full bg-muted text-muted-foreground px-3 py-1 text-xs font-medium">
-                +{category.sizes.length - 3} more
+            {category.sizes.length > 4 && (
+              <span className="inline-flex items-center rounded-full bg-muted text-muted-foreground px-3 py-1.5 text-xs md:text-sm font-semibold border-2 border-border">
+                +{category.sizes.length - 4} more
               </span>
             )}
           </div>
@@ -101,12 +101,12 @@ const ProductGallery = () => {
             <span className="text-sm font-medium">Our Products</span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-5">
-            Premium Paper Bags
-            <span className="block text-primary mt-2">For Every Business</span>
+            Our Categories
+            <span className="block text-primary mt-2">Quality Paper Products for Every Need</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Explore our wide range of printed paper bags trusted by our customers. All products are fully customizable 
-            — from size to printing. Get a custom quote via WhatsApp.
+            Explore our comprehensive range of paper products including bags, stationery, food packaging, books, and more. 
+            All products are fully customizable — from size to printing. Get a custom quote via WhatsApp.
           </p>
         </ScrollReveal>
 

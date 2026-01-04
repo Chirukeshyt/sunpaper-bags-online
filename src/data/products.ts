@@ -19,60 +19,39 @@ export interface ProductCategory {
 // Products for Home Page Gallery
 export const homePageProducts: ProductCategory[] = [
   {
-    id: "paper-carry-bag",
-    name: "Paper Carry Bag",
-    description: "Durable carry bags for retail, events, and promotions",
-    image: retailBags,
-    sizes: ["6x9", "8x10", "10x12", "Custom"]
+    id: "paper-bags",
+    name: "Paper Bags",
+    description: "Durable and eco-friendly paper bags for retail, events, and promotions",
+    image: "https://ik.imagekit.io/pstron/SunPaper/2df67cc25081abae70d8c3f6a4f63228.jpg",
+    sizes: ["6x9", "11x13", "20x23", "Custom"]
   },
   {
-    id: "printed-paper-bag",
-    name: "Printed Paper Bag",
-    description: "Custom printed bags with vibrant branding",
-    image: duplexBags,
-    sizes: ["Small", "Medium", "Large", "Custom"]
+    id: "files-office-stationery",
+    name: "Files & Office Stationery",
+    description: "Professional files, binders, and office stationery products",
+    image: "https://ik.imagekit.io/pstron/SunPaper/0ba692e0afdf4821a80ee241550f7330.jpg",
+    sizes: ["A4", "A5", "Custom", "Various"]
   },
   {
-    id: "food-packaging-box",
-    name: "Food Packaging Box",
-    description: "Food-grade boxes and takeaway bags for cafes and restaurants",
-    image: foodBags,
+    id: "food-packaging-covers",
+    name: "Food Packaging Covers",
+    description: "Food-grade packaging boxes and covers for restaurants and cafes",
+    image: "https://ik.imagekit.io/pstron/SunPaper/f7abfc9e8eca529f75efc64753b94d99.jpg",
     sizes: ["1/4 KG", "1/2 KG", "1 KG", "Custom"]
   },
   {
-    id: "paper-board",
-    name: "Paper Board",
-    description: "High-strength paper board for packaging and printing",
-    image: heroBags,
-    sizes: ["Custom thickness", "Custom size"]
+    id: "books-notebooks",
+    name: "Books & Notebooks",
+    description: "High-quality books, notebooks, and writing pads",
+    image: "https://i.pinimg.com/1200x/bc/ec/59/bcec591335dfd7a21508ce963270ae71.jpg",
+    sizes: ["A4", "A5", "Custom", "Various"]
   },
   {
-    id: "cellulose-fiber",
-    name: "Cellulose Fiber & Wadding",
-    description: "Cellulose fiber and wadding for specialty applications",
-    image: hospitalBags,
-    sizes: ["Rolls", "Sheets", "Custom"]
-  },
-  {
-    id: "wedding",
-    name: "Wedding Bags",
-    description: "Elegant bags for weddings and special occasions",
-    image: weddingBags,
-    sizes: ["Small", "Medium", "Large", "Custom"]
-  },
-  {
-    id: "jewelry",
-    name: "Jewelry & Boutique",
-    description: "Premium small bags with foil or multicolor printing",
-    image: jewelryBags,
-    sizes: ["Small", "Medium", "Custom"]
-  },
-  {
-    id: "kraft",
-    name: "Eco-Friendly Kraft",
-    description: "Sustainable brown kraft paper bags",
-    image: kraftBags,
-    sizes: ["All sizes available"]
+    id: "all-paper-products",
+    name: "All Paper Products",
+    description: "Comprehensive range of paper products for every need",
+    image: "https://ik.imagekit.io/pstron/SunPaper/e3d534d198a6a27195efe718bcd48712.jpg",
+    sizes: ["All sizes", "Custom", "Bulk orders"]
   }
 ];
 
@@ -107,7 +86,63 @@ export const productsPageProducts: ProductImage[] = [
   {
     imageLink: "https://ik.imagekit.io/pstron/SunPaper/7527D4FA-47C2-4516-9DDF-6B2B9AAB791B.PNG"
   },
-  
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.31.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.21%20(1).jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.32.02%20(1).jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.32.04.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.24.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.29.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.24%20(1).jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.40.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.41.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.40%20(1).jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.55.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.28%20(2).jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.26.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.39.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.42%20(1).jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.32.01.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.58.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.46.jpeg"
+  },
+  {
+    imageLink: "https://ik.imagekit.io/pstron/SunPaper/WhatsApp%20Image%202025-12-26%20at%2019.31.23%20(1).jpeg"
+  }
 
 
   // Add more image links here as needed
