@@ -73,9 +73,20 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 border-t border-border pt-6">
+        <div className="mt-12 border-t border-border pt-6 space-y-2">
           <p className="text-center text-sm text-muted-foreground">
             © {new Date().getFullYear()} SUN PAPER INDUSTRIES. All rights reserved.
+          </p>
+          <p className="text-center text-xs text-muted-foreground">
+            Designed and Developed by{" "}
+            <a 
+              href="https://www.tekloomy.in" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-semibold text-primary hover:underline"
+            >
+              Tekloomy (OPC) Private Limited
+            </a>
           </p>
         </div>
       </div>
