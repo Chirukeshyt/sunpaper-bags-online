@@ -7,7 +7,7 @@ import { getGeneralWhatsAppLink } from "@/lib/whatsapp";
 const pricingTiers = [
   {
     name: "Small Orders",
-    quantity: "500 - 1,000 bags",
+    quantity: "1000 - 5,000 bags",
     icon: Package,
     features: [
       "Custom size & design",
@@ -16,12 +16,12 @@ const pricingTiers = [
       "7-10 days delivery",
       "WhatsApp support"
     ],
-    discount: "0%",
+    
     popular: false
   },
   {
     name: "Medium Orders",
-    quantity: "1,000 - 10,000 bags",
+    quantity: "5,000 - 10,000 bags",
     icon: TrendingUp,
     features: [
       "Custom size & design",
@@ -29,9 +29,9 @@ const pricingTiers = [
       "Premium materials",
       "5-7 days delivery",
       "Priority support",
-      "5% discount"
+      
     ],
-    discount: "5%",
+    
     popular: true
   },
   {
@@ -44,10 +44,10 @@ const pricingTiers = [
       "Premium materials",
       "3-5 days delivery",
       "Dedicated account manager",
-      "10-15% discount",
+      
       "Flexible payment terms"
     ],
-    discount: "10-15%",
+    
     popular: false
   }
 ];
@@ -112,13 +112,7 @@ const PricingSection = () => {
                 {tier.quantity}
               </p>
 
-              {/* Discount Badge */}
-              <div className="mb-6">
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-semibold">
-                  <span className="text-lg">🎉</span>
-                  {tier.discount} OFF
-                </span>
-              </div>
+
 
               {/* Features */}
               <ul className="space-y-3 mb-8">

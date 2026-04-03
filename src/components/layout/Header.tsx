@@ -30,7 +30,7 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="SunPaper Industries Logo" className="h-12 w-12 object-contain rounded-lg" />
-          <span className="font-heading text-base sm:text-xl md:text-2xl font-bold text-green-600 dark:text-green-500">
+          <span className="font-heading text-2xl sm:text-2xl md:text-3xl font-bold text-green-600 dark:text-green-500">
             SUN PAPER INDUSTRIES
           </span>
         </Link>
@@ -42,7 +42,7 @@ const Header = () => {
               <a
                 key={item.path}
                 href={item.path}
-                className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+                className="text-md font-medium transition-colors hover:text-primary text-muted-foreground"
               >
                 {item.label}
               </a>
@@ -51,7 +51,7 @@ const Header = () => {
                 key={item.path}
                 to={item.path}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
+                  "text-md font-medium transition-colors hover:text-primary",
                   isActive(item.path) ? "text-primary" : "text-muted-foreground"
                 )}
               >

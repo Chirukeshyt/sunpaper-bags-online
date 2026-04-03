@@ -6,7 +6,13 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { MessageCircle, Search } from 'lucide-react';
-import { productCatalog, getUniqueSizes, getUniqueMaterials, getUniquePrintingOptions, findProductFromCatalog, ProductOption } from '@/data/productCatalog';
+import {
+  getUniqueMaterials,
+  getUniquePrintingOptions,
+  getUniqueSizes,
+  productCatalog,
+  findProductFromCatalog,
+} from '@/data/productCatalog';
 
 const Order = () => {
   const [searchParams] = useSearchParams();
@@ -22,80 +28,77 @@ const Order = () => {
   const uniqueMaterials = getUniqueMaterials();
   const uniquePrintingOptions = getUniquePrintingOptions();
 
-  // Filter products based on selections
   const filteredProducts = useMemo(() => {
-    return productCatalog.filter(product => {
-      const sizeMatch = !selectedSize || product.sizeFormatted === selectedSize || product.size === selectedSize;
-      const materialMatch = !selectedMaterial || product.material.toUpperCase() === selectedMaterial.toUpperCase();
-      const printingMatch = !selectedPrinting || product.printing.toUpperCase().includes(selectedPrinting.toUpperCase()) || selectedPrinting.toUpperCase().includes(product.printing.toUpperCase());
-      
+    return productCatalog.filter((product) => {
+      const sizeMatch =
+        !selectedSize || product.sizeFormatted === selectedSize || product.size === selectedSize;
+      const materialMatch =
+        !selectedMaterial || product.material.toUpperCase() === selectedMaterial.toUpperCase();
+      const printingMatch =
+        !selectedPrinting ||
+        product.printing.toUpperCase().includes(selectedPrinting.toUpperCase()) ||
+        selectedPrinting.toUpperCase().includes(product.printing.toUpperCase());
+
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
-        return (product.sizeFormatted.toLowerCase().includes(query) ||
-                product.material.toLowerCase().includes(query) ||
-                product.printing.toLowerCase().includes(query)) &&
-                sizeMatch && materialMatch && printingMatch;
+        return (
+          (product.sizeFormatted.toLowerCase().includes(query) ||
+            product.material.toLowerCase().includes(query) ||
+            product.printing.toLowerCase().includes(query)) &&
+          sizeMatch &&
+          materialMatch &&
+          printingMatch
+        );
       }
-      
+
       return sizeMatch && materialMatch && printingMatch;
     });
   }, [selectedSize, selectedMaterial, selectedPrinting, searchQuery]);
 
-  // Get selected product for pricing
   const selectedProduct = useMemo(() => {
     if (selectedSize && selectedMaterial && selectedPrinting) {
-      const sizeObj = uniqueSizes.find(s => s.id === selectedSize || s.label === selectedSize);
-      return findProductFromCatalog(
-        sizeObj?.label || selectedSize,
-        selectedMaterial,
-        selectedPrinting
-      );
+      const sizeObj = uniqueSizes.find((s) => s.id === selectedSize || s.label === selectedSize);
+      return findProductFromCatalog(sizeObj?.label || selectedSize, selectedMaterial, selectedPrinting);
     }
     return null;
   }, [selectedSize, selectedMaterial, selectedPrinting, uniqueSizes]);
 
-  // Calculate pricing
-  const pricing = useMemo(() => {
-    if (!selectedProduct || selectedProduct.unitPrice === 0) {
-      return { unitPrice: 0, totalPrice: 0, quantity: selectedQuantity, gst: 0, finalTotal: 0 };
+  const selectedSizeLabel = useMemo(() => {
+    const sizeObj = uniqueSizes.find((s) => s.id === selectedSize || s.label === selectedSize);
+    return sizeObj?.label || selectedSize || 'Not selected';
+  }, [selectedSize, uniqueSizes]);
+
+  const selectedMaterialLabel = useMemo(() => {
+    const materialObj = uniqueMaterials.find((m) => m.id === selectedMaterial);
+    return materialObj?.label || selectedMaterial || 'Not selected';
+  }, [selectedMaterial, uniqueMaterials]);
+
+  const selectedPrintingLabel = useMemo(() => {
+    const printingObj = uniquePrintingOptions.find((p) => p.id === selectedPrinting);
+    return printingObj?.label || selectedPrinting || 'Not selected';
+  }, [selectedPrinting, uniquePrintingOptions]);
+
+  const summaryMinQuantity = useMemo(() => {
+    if (selectedProduct) {
+      return selectedProduct.minQuantity;
     }
+    if (filteredProducts.length > 0) {
+      return Math.min(...filteredProducts.map((product) => product.minQuantity));
+    }
+    return null;
+  }, [selectedProduct, filteredProducts]);
 
-    const quantity = Math.max(selectedProduct.minQuantity, selectedQuantity);
-    const unitPrice = selectedProduct.unitPrice;
-    const subtotal = unitPrice * quantity;
-    const gst = subtotal * (selectedProduct.gst / 100);
-    const finalTotal = subtotal + gst;
-
-    return {
-      unitPrice,
-      totalPrice: subtotal,
-      quantity,
-      gst,
-      finalTotal
-    };
-  }, [selectedProduct, selectedQuantity]);
+  const hasSummarySelection = Boolean(selectedSize && selectedMaterial && selectedPrinting);
 
   const generateWhatsAppLink = () => {
-    const sizeObj = uniqueSizes.find(s => s.id === selectedSize || s.label === selectedSize);
-    const materialObj = uniqueMaterials.find(m => m.id === selectedMaterial);
-    const printingObj = uniquePrintingOptions.find(p => p.id === selectedPrinting);
-
-    const sizeText = sizeObj?.label || selectedSize || 'Not selected';
-    const materialText = materialObj?.label || selectedMaterial || 'Not selected';
-    const printingText = printingObj?.label || selectedPrinting || 'Not selected';
-
-    const message = encodeURIComponent(`Hi SUN PAPER INDUSTRIES 👋
+    const message = encodeURIComponent(`Hi SUN PAPER INDUSTRIES
 I want to place an order:
 
-• Category: ${categoryFromUrl || 'Paper Bags'}
-• Size: ${sizeText}
-• Material: ${materialText}
-• Printing: ${printingText}
-• Quantity: ${pricing.quantity.toLocaleString('en-IN')}
-${pricing.unitPrice > 0 ? `• Unit Price: ₹${pricing.unitPrice}
-• Subtotal: ₹${pricing.totalPrice.toLocaleString('en-IN')}
-• GST (18%): ₹${pricing.gst.toLocaleString('en-IN', { maximumFractionDigits: 2 })}
-• Total: ₹${pricing.finalTotal.toLocaleString('en-IN', { maximumFractionDigits: 2 })}` : '• Please provide quote'}
+- Category: ${categoryFromUrl || 'Paper Bags'}
+- Size: ${selectedSizeLabel}
+- Material: ${selectedMaterialLabel}
+- Printing: ${selectedPrintingLabel}
+- Min. Quantity: ${summaryMinQuantity?.toLocaleString('en-IN') || 'On request'}
 
 Please confirm availability and share payment details.`);
 
@@ -124,9 +127,7 @@ Please confirm availability and share payment details.`);
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Left Column - Selection Filters */}
             <div className="lg:col-span-2 space-y-6">
-              {/* Search */}
               <div className="bg-card rounded-xl border border-border p-6">
                 <Label className="text-base font-semibold mb-4 block">Search Products</Label>
                 <div className="relative">
@@ -141,7 +142,6 @@ Please confirm availability and share payment details.`);
                 </div>
               </div>
 
-              {/* Size Selection */}
               <div className="bg-card rounded-xl border border-border p-6">
                 <Label className="text-base font-semibold mb-4 block">Select Size</Label>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-64 overflow-y-auto">
@@ -161,7 +161,6 @@ Please confirm availability and share payment details.`);
                 </div>
               </div>
 
-              {/* Material Selection */}
               <div className="bg-card rounded-xl border border-border p-6">
                 <Label className="text-base font-semibold mb-4 block">Select Material</Label>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -181,7 +180,6 @@ Please confirm availability and share payment details.`);
                 </div>
               </div>
 
-              {/* Printing Selection */}
               <div className="bg-card rounded-xl border border-border p-6">
                 <Label className="text-base font-semibold mb-4 block">Select Printing</Label>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -201,7 +199,6 @@ Please confirm availability and share payment details.`);
                 </div>
               </div>
 
-              {/* Quantity Selection */}
               <div className="bg-card rounded-xl border border-border p-6">
                 <Label className="text-base font-semibold mb-4 block">
                   Select Quantity
@@ -212,7 +209,7 @@ Please confirm availability and share payment details.`);
                   )}
                 </Label>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4">
-                  {[500, 1000, 2000, 5000, 10000].map((qty) => (
+                  {[ 1000, 2000, 5000, 10000].map((qty) => (
                     <button
                       key={qty}
                       onClick={() => setSelectedQuantity(qty)}
@@ -233,13 +230,19 @@ Please confirm availability and share payment details.`);
                     type="number"
                     min={selectedProduct?.minQuantity || 500}
                     value={selectedQuantity}
-                    onChange={(e) => setSelectedQuantity(Math.max(selectedProduct?.minQuantity || 500, parseInt(e.target.value) || selectedProduct?.minQuantity || 500))}
+                    onChange={(e) =>
+                      setSelectedQuantity(
+                        Math.max(
+                          selectedProduct?.minQuantity || 500,
+                          parseInt(e.target.value, 10) || selectedProduct?.minQuantity || 500,
+                        ),
+                      )
+                    }
                     placeholder={`Min: ${selectedProduct?.minQuantity || 500}`}
                   />
                 </div>
               </div>
 
-              {/* Available Products Preview */}
               {filteredProducts.length > 0 && (
                 <div className="bg-card rounded-xl border border-border p-6">
                   <Label className="text-base font-semibold mb-4 block">
@@ -255,7 +258,7 @@ Please confirm availability and share payment details.`);
                             : 'border-border hover:border-primary/30'
                         }`}
                         onClick={() => {
-                          const sizeObj = uniqueSizes.find(s => s.label === product.sizeFormatted);
+                          const sizeObj = uniqueSizes.find((s) => s.label === product.sizeFormatted);
                           setSelectedSize(sizeObj?.label || product.sizeFormatted);
                           setSelectedMaterial(product.material.toUpperCase());
                           setSelectedPrinting(product.printing.toUpperCase());
@@ -268,11 +271,6 @@ Please confirm availability and share payment details.`);
                               {product.material} • {product.printing}
                             </span>
                           </div>
-                          {product.unitPrice > 0 && (
-                            <span className="font-semibold text-primary">
-                              ₹{product.unitPrice}
-                            </span>
-                          )}
                         </div>
                       </div>
                     ))}
@@ -281,63 +279,31 @@ Please confirm availability and share payment details.`);
               )}
             </div>
 
-            {/* Right Column - Price Summary */}
             <div className="lg:col-span-1">
               <div className="bg-card rounded-xl border border-border p-6 sticky top-24">
                 <h3 className="font-semibold text-lg mb-4">Order Summary</h3>
-                {selectedProduct ? (
+                {hasSummarySelection ? (
                   <>
                     <div className="space-y-3 text-sm mb-4">
-                      <div>
-                        <span className="text-muted-foreground">Size:</span>
-                        <span className="font-medium ml-2">{selectedProduct.sizeFormatted}</span>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">Size</span>
+                        <span className="font-medium text-right">{selectedSizeLabel}</span>
                       </div>
-                      <div>
-                        <span className="text-muted-foreground">Material:</span>
-                        <span className="font-medium ml-2">{selectedProduct.material}</span>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">Material</span>
+                        <span className="font-medium text-right">{selectedMaterialLabel}</span>
                       </div>
-                      <div>
-                        <span className="text-muted-foreground">Printing:</span>
-                        <span className="font-medium ml-2">{selectedProduct.printing}</span>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">Printing</span>
+                        <span className="font-medium text-right">{selectedPrintingLabel}</span>
                       </div>
-                      <div>
-                        <span className="text-muted-foreground">Min. Quantity:</span>
-                        <span className="font-medium ml-2">{selectedProduct.minQuantity.toLocaleString('en-IN')}</span>
+                      <div className="flex justify-between gap-4">
+                        <span className="text-muted-foreground">Min. Quantity</span>
+                        <span className="font-medium text-right">
+                          {summaryMinQuantity?.toLocaleString('en-IN') || 'On request'}
+                        </span>
                       </div>
                     </div>
-
-                    {pricing.unitPrice > 0 ? (
-                      <div className="space-y-2 text-sm border-t border-border pt-4">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Unit Price</span>
-                          <span className="font-medium">₹{pricing.unitPrice}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Quantity</span>
-                          <span className="font-medium">{pricing.quantity.toLocaleString('en-IN')}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">Subtotal</span>
-                          <span className="font-medium">₹{pricing.totalPrice.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground">GST ({selectedProduct.gst}%)</span>
-                          <span className="font-medium">₹{pricing.gst.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</span>
-                        </div>
-                        <div className="border-t border-border pt-2 mt-2">
-                          <div className="flex justify-between text-lg">
-                            <span className="font-semibold">Total</span>
-                            <span className="font-bold text-primary">
-                              ₹{pricing.finalTotal.toLocaleString('en-IN', { maximumFractionDigits: 2 })}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="text-center py-4 text-muted-foreground">
-                        <p className="text-sm">Price available on request</p>
-                      </div>
-                    )}
 
                     <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="block mt-6">
                       <Button variant="whatsapp" size="lg" className="w-full text-lg py-6">
@@ -348,7 +314,7 @@ Please confirm availability and share payment details.`);
                   </>
                 ) : (
                   <div className="text-center py-8 text-muted-foreground">
-                    <p className="text-sm">Please select size, material, and printing to see pricing</p>
+                    <p className="text-sm">Please select size, material, and printing to continue</p>
                   </div>
                 )}
               </div>

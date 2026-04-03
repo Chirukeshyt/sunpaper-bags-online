@@ -26,25 +26,11 @@ export const homePageProducts: ProductCategory[] = [
     sizes: ["6x9", "11x13", "20x23", "Custom"]
   },
   {
-    id: "files-office-stationery",
-    name: "Files & Office Stationery",
-    description: "Professional files, binders, and office stationery products",
-    image: "https://ik.imagekit.io/pstron/SunPaper/0ba692e0afdf4821a80ee241550f7330.jpg",
-    sizes: ["A4", "A5", "Custom", "Various"]
-  },
-  {
     id: "food-packaging-covers",
     name: "Food Packaging Covers",
     description: "Food-grade packaging boxes and covers for restaurants and cafes",
     image: "https://ik.imagekit.io/pstron/SunPaper/f7abfc9e8eca529f75efc64753b94d99.jpg",
     sizes: ["1/4 KG", "1/2 KG", "1 KG", "Custom"]
-  },
-  {
-    id: "books-notebooks",
-    name: "Books & Notebooks",
-    description: "High-quality books, notebooks, and writing pads",
-    image: "https://i.pinimg.com/1200x/bc/ec/59/bcec591335dfd7a21508ce963270ae71.jpg",
-    sizes: ["A4", "A5", "Custom", "Various"]
   },
   {
     id: "all-paper-products",
