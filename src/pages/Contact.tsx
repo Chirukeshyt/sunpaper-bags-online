@@ -96,7 +96,7 @@ const Contact = () => {
                         id="phone"
                         name="phone"
                         type="tel"
-                        placeholder="+91 96667784645"
+                        placeholder="+91 9666778465"
                         value={formData.phone}
                         onChange={handleChange}
                         required
@@ -182,7 +182,13 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-foreground">Phone</h3>
                         <p className="text-muted-foreground text-sm mt-1">
-                          +91 96667784645
+                          +91 9666778465
+                        </p>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground">Phone</h3>
+                        <p className="text-muted-foreground text-sm mt-1">
+                          +91 9866038338
                         </p>
                       </div>
                     </div>
